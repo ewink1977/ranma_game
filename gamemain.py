@@ -1,5 +1,6 @@
 import character, functions, ui
 
+# Act One 
 print(ui.start_message)
 
 player_choice = input(">> ")
@@ -47,7 +48,6 @@ a1_4 += ("\n")
 print(a1_4)
 input("Hit ENTER once you've read that nonsense and are ready to continue!")
 functions.battle(player, character.Henchman())
-
-# print(player.name)
-
-# player.dodge_roll()
+a1_5 = ("\n")
+a1_5 += (f"I hope you won. Let's see, your HP is at {player.hp}")
+print(a1_5)

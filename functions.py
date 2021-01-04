@@ -1,4 +1,5 @@
 from character import *
+import random
 
 def choose_character(choice):
     player = None
@@ -34,19 +35,21 @@ def battle(player, npc):
                     battleactive = False
             else:
                 print(f"{npc.name} dodged your attack! Holy smokes!")
-            attack_roll = random.randrange(1, 20, 1)
-            if attack_roll > player.dex and battleactive == True:
+            # IF NPC IS DEAD, WE DON'T WANT TO RUN THIS PART, CHECKING BATTLEACTIVE.
+            if battleactive == True: 
                 print(f"{npc.name}'s turn now!")
-                hp_hit = attack_roll + npc.str
-                player.hp -= hp_hit
-                print(f"DEBUG: ROLL {attack_roll} - HP HIT {hp_hit} - PLAYER HP {player.hp}")
-                if player.hp > 0:
-                    print(f"KASPLOOSH!!! {npc.name} just clocked you for {hp_hit}!!")
-                if player.hp <= 0:
-                    print("Well, you're dead. Kind of sad. Bye bye.")
-                    battleactive = False
-            else:
-                print(f"You managed to dodge {npc.name}'s attack! Nice work!")
+                attack_roll = random.randrange(1, 20, 1)
+                if attack_roll > player.dex:
+                    hp_hit = attack_roll + npc.str
+                    player.hp -= hp_hit
+                    print(f"DEBUG: ROLL {attack_roll} - HP HIT {hp_hit} - PLAYER HP {player.hp}")
+                    if player.hp > 0:
+                        print(f"KASPLOOSH!!! {npc.name} just clocked you for {hp_hit}!!")
+                    if player.hp <= 0:
+                        print("Well, you're dead. Kind of sad. Bye bye.")
+                        battleactive = False
+                else:
+                    print(f"You managed to dodge {npc.name}'s attack! Nice work!")
         elif action.capitalize() == 'R':
             if may_flee == True:
                 flee_roll = random.randrange(1, 20, 1)
