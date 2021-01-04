@@ -1,6 +1,6 @@
 import random
 
-# BASE CLASS
+# BASE CLASS ===
 class Character():
     def __init__(self, name, hp, str, int, dex, per, level, xp = 0):
         self.name = name
@@ -20,12 +20,27 @@ class Character():
         else:
             return print(f'Woot! {self.name} managed to dodge!')
 
+# PLAYER CHARACTER CLASSES ===
 class RanmaGirl(Character):
     def __init__(self):
         super().__init__(name = 'Ranma-Chan', hp = 250, str = 7, int = 7, dex = 15, per = 11, level = 1)
         self.ki = 10
 
+class RanmaBoy(Character):
+    def __init__(self):
+        super().__init__(name = 'Ranma', hp = 300, str = 12, int = 8, dex = 8, per = 12, level = 1)
+        self.ki = 10
 
+class Akane(Character):
+    def __init__(self):
+        super().__init__(name = 'Akane', hp = 225, str = 10, int = 9, dex = 9, per = 12, level = 1)
+        self.ki = 0
+
+# NPC CHARACTER CLASSES ===
+class Tatewaki(Character):
+    def __init__(self):
+        super().__init__(name = 'Kuno', hp = 250, str = 11, int = 6, dex = 11, per = 12, level = 1)
+        self.ki = 10
 
 
 
